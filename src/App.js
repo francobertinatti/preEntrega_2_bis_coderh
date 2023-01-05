@@ -1,12 +1,23 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./containers/ItemListContainer";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 function App() {
-  return <div className="App">
-    <NavBar />
-    <ItemListContainer />
-  </div>;
+  return (
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<ItemListContainer />} />
+      </Routes>
+    </BrowserRouter>
+
+
+
+  )
+
+
 
 }
 

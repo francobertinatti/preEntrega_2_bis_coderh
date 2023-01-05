@@ -1,20 +1,22 @@
 import React from 'react'
 
 const Item = ({ title, content }) => {
+  console.log(title)
+  console.log(content)
   return (
-    <div class="col">
-      <div class="card h-100">
+    <div className="col">
+      <div className="card h-100">
         <img
           src="https://www.lg.com/uk/images/monitors/md06014999/gallery/large01.jpg"
-          class="card-img-top"
+          className="card-img-top"
           alt="..."
         />
-        <div class="card-body">
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text">{content}</p>
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{content}</p>
         </div>
-        <div class="card-footer">
-          <a href="/#" class="btn btn-primary">
+        <div className="card-footer">
+          <a href="/#" className="btn btn-primary">
             Go somewhere
           </a>
         </div>
