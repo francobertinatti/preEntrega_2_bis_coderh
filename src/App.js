@@ -9,6 +9,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
+
         <Route path='/' element={<ItemListContainer />} />
       </Routes>
     </BrowserRouter>

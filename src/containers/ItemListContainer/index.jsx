@@ -1,38 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import Item from '../../components/Item'
-
-// const [count, setCount] = useState(0) ► INICIALIZATION EN 0
-
-//   const sumarContador = () => { ► UTILIZAMOS EL ESTADO
-//     console.log('suma 1')
-//     setCount(count + 1) ► A ESTE ESTADO COUNT , SE LO MODIFICA CON LA FUNCION QUE CAMBIA EL ESTADO QUE ES setCount
-//   }
+import React, { useEffect, useState } from 'react';
+import ItemList from '../../components/ItemList';
 
 const ItemListContainer = () => {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([]);
 
-  const sumarContador = () => {
-    console.log('suma 1')
-    setCount(count + 1)
-  }
-
+  //Este effect se ejecuta cuando se monta el componente
   useEffect(() => {
-    console.log('se monto el componente')
-  }, [])
+    fetch('https://fakestoreapi.com/products')
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        setProducts(json);
+      })
+      .catch((err) => {
+        alert('Hubo un error');
+      });
+  }, []);
+
+  // console.log(products);
 
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-4 m-3">
-      <button onClick={sumarContador}>sumar 1</button>
-      <span>{count}</span>
-
-      <Item title={'Titulo 1'} content={'Esto es una prueba'} />
-      <Item title={'Titulo 2'} content={'Esto es una prueba'} />
-      <Item title={'Titulo 3'} content={'Esto es una prueba'} />
-      <Item title={'Titulo 4'} content={'Esto es una prueba'} />
-      <Item title={'Titulo 5'} content={'Esto es una prueba'} />
-      <Item title={'Titulo 6'} content={'Esto es una prueba'} />
+    <div>
+      <ItemList productos={products} />
     </div>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
