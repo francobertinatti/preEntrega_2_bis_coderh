@@ -45,7 +45,17 @@ const ItemListContainer = () => {
   return (
     <div>
       {/* <input onChange={handleChange} placeholder='Realice la búsqueda de productos'></input> */}
-      <ItemList productos={products} />
+      <div>
+        {Object.keys(products).length === 0 ? (
+          <div className='d-flex justify-content-center m-4'>
+            <div className='spinner-border' role='status'>
+              <span className='visually-hidden'>Loading...</span>
+            </div>
+          </div>
+        ) : (
+          <ItemList productos={products} />
+        )}
+      </div>
     </div>
   );
 };

@@ -12,27 +12,39 @@ const ItemCount = ({ onAdd, stock, initial }) => {
   };
 
   return (
-    <div className='container'>
-      <div className='row align-items-center p-2'>
-        <div className='col-sm-2'>
-          <button type='button' className='btn btn-secondary' onClick={onDecrement}>
-            -
-          </button>
-        </div>
-        <div className='col-sm-2'>
-          <label className='d-flex justify-content-center'>{count}</label>
-        </div>
-        <div className='col-sm-2'>
-          <button type='button' className='btn btn-secondary' onClick={onPlus}>
-            +
-          </button>
-        </div>
-        <div className='col-sm-6'>
-          <button type='button' className='btn btn-secondary' onClick={() => onAdd(count)}>
-            Añadir Carrito
-          </button>
-        </div>
-      </div>
+    // <div className='container'>
+    //   <div className='row align-items-center p-2'>
+    //     <div className='col-sm-2'>
+    //       <button type='button' className='btn btn-secondary' onClick={onDecrement}>
+    //         -
+    //       </button>
+    //     </div>
+    //     <div className='col-sm-2'>
+    //       <label className='d-flex justify-content-center'>{count}</label>
+    //     </div>
+    //     <div className='col-sm-2'>
+    //       <button type='button' className='btn btn-secondary' onClick={onPlus}>
+    //         +
+    //       </button>
+    //     </div>
+    //     <div className='col-sm-6'>
+    //       <button type='button' className='btn btn-secondary' onClick={() => onAdd(count)}>
+    //         Añadir Carrito
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className='d-flex align-items-center'>
+      <button className='btn btn-secondary m-2' onClick={onDecrement}>
+        -
+      </button>
+      <span className='mx-2 m-2'>{count}</span>
+      <button className='btn btn-secondary m-2' onClick={onPlus}>
+        +
+      </button>
+      <button className='btn btn-success ml-2' onClick={() => onAdd(count)}>
+        Añadir al carrito
+      </button>
     </div>
   );
 };

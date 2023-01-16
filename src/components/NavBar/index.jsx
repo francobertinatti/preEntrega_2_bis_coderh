@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartWidget from '../CartWidget';
+import Search from '../Search';
 
 const NavBar = () => {
   return (
@@ -57,6 +58,7 @@ const NavBar = () => {
           </form>
         </div>
         <div>
+          <Search />
           <CartWidget />
           <span>2</span>
         </div>
